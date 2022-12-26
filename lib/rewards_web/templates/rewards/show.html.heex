@@ -1,0 +1,22 @@
+<h1>Show Reward</h1>
+
+<ul>
+
+  <li>
+    <strong>Recipient:</strong>
+    <%= @reward.recipient_email %>
+  </li>
+
+  <li>
+    <strong>Points:</strong>
+    <%= @reward.points %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @reward.description %>
+  </li>
+
+</ul>
+
+<span><%= link "Back", to: Routes.rewards_path(@conn, :index) %></span>

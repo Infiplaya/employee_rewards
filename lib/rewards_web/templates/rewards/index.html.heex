@@ -1,0 +1,26 @@
+<h2>All rewards</h2>
+<table>
+  <thead>
+    <tr>
+    <th>Giver </th>
+      <th>Recipient</th>
+      <th>Points</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for reward <- @rewards do %>
+    <tr>
+      <td><%= reward.user.email %> </td>
+      <td><%= reward.recipient_email %></td>
+      <td><%= reward.points %></td>
+      <td><%= reward.description %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.rewards_path(@conn, :show, reward) %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

@@ -1,0 +1,9 @@
+<%= form_for @changeset, Routes.
+users_path(@conn, :update, @user), fn f -> %>
+    <div class="form-group">
+        <%= text_input f, :points, placeholder: "Points", class: "form-control" %>
+        <%= error_tag f, :points %>
+    </div>
+
+    <%= submit "Save Points", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,16 @@
+<ul>
+<%= if @current_user do %>
+  <li><%= @current_user.email %></li>
+  <li>Points: <%= @current_user.points %></li>
+  <li>Role: <%= @current_user.role %></li>
+
+  <%= if @current_user.role == :admin do %>
+    <a href="/admin">Admin panel</a>
+  <% end %>
+  <li><%= link "Settings", to: Routes.user_settings_path(@conn, :edit) %></li>
+  <li><%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete %></li>
+<% else %>
+  <li><%= link "Register", to: Routes.user_registration_path(@conn, :new) %></li>
+  <li><%= link "Log in", to: Routes.user_session_path(@conn, :new) %></li>
+<% end %>
+</ul>

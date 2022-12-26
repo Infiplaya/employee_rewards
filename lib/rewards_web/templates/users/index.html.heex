@@ -1,0 +1,26 @@
+<h1>List of users</h1>
+
+<table>
+  <thead>
+    <tr>
+    <th>ID</th>
+      <th>Email</th>
+      <th>Points</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      <td><%= user.points %></td>
+
+      <td>
+        <%= link "Edit", to: Routes.users_path(@conn, :edit, user) %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
